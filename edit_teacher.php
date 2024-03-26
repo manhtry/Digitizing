@@ -39,10 +39,6 @@ $result=mysqli_fetch_assoc($query);
                   <input type="text" class="form-control" placeholder="Name" name="fullname" value="<?= ucwords($result['fullname']) ?>" required>
                 </div>
                 <div class="col-md-6 my-1">
-                  <label class="form-label">Father Name <sup class="text-danger">*</sup></label>
-                  <input type="text" class="form-control" placeholder="Father Name" name="father_name" value="<?= ucwords($result['father_name']) ?>" required>
-                </div>
-                <div class="col-md-6 my-1">
                   <label class="form-label">ID Card</label>
                   <input type="text" class="form-control" placeholder="13 Digit ID" name="id_card" value="<?= ucwords($result['id_card']) ?>" maxlength="15">
                 </div>
@@ -104,7 +100,6 @@ $result=mysqli_fetch_assoc($query);
 <?php include "footer.php";
 if (isset($_POST['update_teacher'])) {
   $fullname=mysqli_real_escape_string($config,$_POST['fullname']);
-  $father_name=mysqli_real_escape_string($config,$_POST['father_name']);
   $id_card=mysqli_real_escape_string($config,$_POST['id_card']);
   $qualification=mysqli_real_escape_string($config,$_POST['qualification']);
   $course=mysqli_real_escape_string($config,$_POST['course']);
@@ -117,7 +112,7 @@ if (isset($_POST['update_teacher'])) {
   $joining_date=$_POST['joining_date'];
   $leave_date=$_POST['leave_date'];
   $add_info=mysqli_real_escape_string($config,$_POST['add_info']);
-  $sql2="UPDATE teachers_tbl SET fullname='$fullname',father_name='$father_name',id_card='$id_card',qualification='$qualification',course='$course',phone='$phone',address='$address',joining_date='$joining_date',leave_date='$leave_date',add_info='$add_info' WHERE comsats_id='$comsats_id'";
+  $sql2="UPDATE teachers_tbl SET fullname='$fullname',id_card='$id_card',qualification='$qualification',course='$course',phone='$phone',address='$address',joining_date='$joining_date',leave_date='$leave_date',add_info='$add_info' WHERE comsats_id='$comsats_id'";
       $query2=mysqli_query($config,$sql2);
       if ($query2) {
         $_SESSION['success']="Record Updated Successfully";
@@ -145,7 +140,7 @@ if (isset($_POST['update_teacher'])) {
   if (in_array($image_ext, $allow_type)) {
     if ($size <= 1000000) {
       move_uploaded_file($tmp_name, $destination);
-      $sql2="UPDATE teachers_tbl SET fullname='$fullname',father_name='$father_name',id_card='$id_card',qualification='$qualification',course='$course',phone='$phone',photo='$photo',address='$address',joining_date='$joining_date',leave_date='$leave_date',add_info='$add_info' WHERE comsats_id='$comsats_id'";
+      $sql2="UPDATE teachers_tbl SET fullname='$fullname',id_card='$id_card',qualification='$qualification',course='$course',phone='$phone',photo='$photo',address='$address',joining_date='$joining_date',leave_date='$leave_date',add_info='$add_info' WHERE comsats_id='$comsats_id'";
       $query2=mysqli_query($config,$sql2);
       if ($query2) {
         $_SESSION['success']="Record Updated Successfully";

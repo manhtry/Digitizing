@@ -36,7 +36,6 @@
                 <tr class="text-primary" style="background-color: #f8f9fc;">
                     <th class='text-center'>ID</th>
                     <th>Name</th>
-                    <th>Father Name</th>
                     <th>Course</th>
                     <th>Phone</th>
                     <th>Start Date</th>

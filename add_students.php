@@ -32,10 +32,6 @@ $query=mysqli_query($config,$sql);
                   <input type="text" class="form-control" placeholder="Name" name="std_name" required>
                 </div>
                 <div class="col-md-6 my-1">
-                  <label class="form-label">Father Name <sup class="text-danger">*</sup></label>
-                  <input type="text" class="form-control" placeholder="Father Name" name="father_name" required>
-                </div>
-                <div class="col-md-6 my-1">
                   <label class="form-label">ID Card</label>
                   <input type="text" class="form-control" placeholder="13 Digit ID" name="id_card" autocomplete="off" maxlength="15">
                 </div>
@@ -103,7 +99,6 @@ $query=mysqli_query($config,$sql);
 <?php include "footer.php";
 if (isset($_POST['register'])) {
   $std_name=mysqli_real_escape_string($config,$_POST['std_name']);
-  $father_name=mysqli_real_escape_string($config,$_POST['father_name']);
   $id_card=mysqli_real_escape_string($config,$_POST['id_card']);
   $qualification=mysqli_real_escape_string($config,$_POST['qualification']);
   $course_id=mysqli_real_escape_string($config,$_POST['course_id']);
@@ -118,7 +113,7 @@ if (isset($_POST['register'])) {
   $end_date = $_POST['end_date'];
   $total_fee=$_POST['total_fee'];
   $add_info=$_POST['add_info'];
-    $sql2="INSERT INTO students_tbl(std_name,father_name,id_card,qualification,course_id,phone_I,phone_II,std_photo,p_address,t_address,start_date,end_date,total_fee,add_info) VALUES('$std_name','$father_name','$id_card','$qualification','$course_id','$phone_I','$phone_II','','$p_address','$t_address','$start_date','$end_date','$total_fee','$add_info')";
+    $sql2="INSERT INTO students_tbl(std_name,id_card,qualification,course_id,phone_I,phone_II,std_photo,p_address,t_address,start_date,end_date,total_fee,add_info) VALUES('$std_name','$id_card','$qualification','$course_id','$phone_I','$phone_II','','$p_address','$t_address','$start_date','$end_date','$total_fee','$add_info')";
       $query2=mysqli_query($config,$sql2);
       if ($query2) {
         $_SESSION['success']="Student enrolled successfully";
@@ -148,7 +143,7 @@ if (isset($_POST['register'])) {
   if (in_array($image_ext, $allow_type)) {
     if ($size <= 1000000) {
       move_uploaded_file($tmp_name, $destination);
-      $sql2="INSERT INTO students_tbl(std_name,father_name,id_card,qualification,course_id,phone_I,phone_II,std_photo,p_address,t_address,start_date,end_date,total_fee,add_info) VALUES('$std_name','$father_name','$id_card','$qualification','$course_id','$phone_I','$phone_II','$stdPhoto','$p_address','$t_address','$start_date','$end_date','$total_fee','$add_info')";
+      $sql2="INSERT INTO students_tbl(std_name,id_card,qualification,course_id,phone_I,phone_II,std_photo,p_address,t_address,start_date,end_date,total_fee,add_info) VALUES('$std_name','$id_card','$qualification','$course_id','$phone_I','$phone_II','$stdPhoto','$p_address','$t_address','$start_date','$end_date','$total_fee','$add_info')";
       $query2=mysqli_query($config,$sql2);
       if ($query2) {
         $_SESSION['success']="Student enrolled successfully";

@@ -27,7 +27,6 @@ if ($rows) {
               <table class="table table-bordered" width="100%" cellspacing="0">
               <thead class="bg-primary text-white">
                 <tr>
-                    <th>Father Name</th>
                     <th>Course</th>
                     <th>Phone</th>
                     <th>Joining Date</th>

@@ -44,10 +44,6 @@ if ($rows) { ?>
             <table class="table table-bordered" width="100%" cellspacing="0">
               <tbody class="text-dark">
                 <tr>
-                  <th>Father Name</th>
-                  <td> <?= ucwords($result['father_name']) ?> </td>
-                </tr>
-                <tr>
                   <th>CNIC</th>
                   <td> <?= ucwords($result['id_card']) ?> </td>
                 </tr>

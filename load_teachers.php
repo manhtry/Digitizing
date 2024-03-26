@@ -11,13 +11,11 @@ if ($rows) {
     while ($result = mysqli_fetch_assoc($query)) {
         $output = ""; // Move the declaration and initialization inside the loop
         $fullname = ucwords($result['fullname']);
-        $father_name = ucwords($result['father_name']);
         $date = date('d-M-Y', strtotime($result['joining_date']));
         $output .= "
             <tr>
                 <td class='text-center'>" . (++$count) . "</td>
                 <td>{$fullname}</td>
-                <td>{$father_name}</td>
                 <td>{$result['course_name']}</td>
                 <td>{$result['phone']}</td>
                 <td>{$date}</td>

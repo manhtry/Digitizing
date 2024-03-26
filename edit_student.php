@@ -37,11 +37,7 @@ $result=mysqli_fetch_assoc($query);
                 <div class="col-md-6 my-1">
                   <label class="form-label">Name<sup class="text-danger">*</sup></label>
                   <input type="text" class="form-control" placeholder="Name" name="std_name" value="<?= ucwords($result['std_name']) ?>" required>
-                </div>
-                <div class="col-md-6 my-1">
-                  <label class="form-label">Father Name <sup class="text-danger">*</sup></label>
-                  <input type="text" class="form-control" placeholder="Father Name" name="father_name" value="<?= ucwords($result['father_name']) ?>" required>
-                </div>
+                </div>s
                 <div class="col-md-6 my-1">
                   <label class="form-label">ID Card</label>
                   <input type="text" class="form-control" placeholder="13 Digit ID" name="id_card" value="<?= ucwords($result['id_card']) ?>" maxlength="15">
@@ -116,7 +112,6 @@ $result=mysqli_fetch_assoc($query);
 <?php include "footer.php";
 if (isset($_POST['update_btn'])) {
   $std_name=mysqli_real_escape_string($config,$_POST['std_name']);
-  $father_name=mysqli_real_escape_string($config,$_POST['father_name']);
   $id_card=mysqli_real_escape_string($config,$_POST['id_card']);
   $qualification=mysqli_real_escape_string($config,$_POST['qualification']);
   $course_id=mysqli_real_escape_string($config,$_POST['course_id']);
@@ -132,7 +127,7 @@ if (isset($_POST['update_btn'])) {
   $end_date=$_POST['end_date'];
   $total_fee=$_POST['total_fee'];
   $add_info=mysqli_real_escape_string($config,$_POST['add_info']);
-  $sql2="UPDATE students_tbl SET std_name='$std_name',father_name='$father_name',id_card='$id_card',qualification='$qualification',course_id='$course_id',phone_I='$phone_I',phone_II='$phone_II',p_address='$p_address',t_address='$t_address',start_date='$start_date',end_date='$end_date',total_fee='$total_fee',add_info='$add_info' WHERE comsats_id='$comsats_id'";
+  $sql2="UPDATE students_tbl SET std_name='$std_name',id_card='$id_card',qualification='$qualification',course_id='$course_id',phone_I='$phone_I',phone_II='$phone_II',p_address='$p_address',t_address='$t_address',start_date='$start_date',end_date='$end_date',total_fee='$total_fee',add_info='$add_info' WHERE comsats_id='$comsats_id'";
       $query2=mysqli_query($config,$sql2);
       if ($query2) {
         $_SESSION['success']="Student Record Updated Successfully";
@@ -162,7 +157,7 @@ if (isset($_POST['update_btn'])) {
   if (in_array($image_ext, $allow_type)) {
     if ($size <= 1000000) {
       move_uploaded_file($tmp_name, $destination);
-      $sql2="UPDATE students_tbl SET std_name='$std_name',father_name='$father_name',id_card='$id_card',qualification='$qualification',course_id='$course_id',phone_I='$phone_I',phone_II='$phone_II',std_photo='$stdPhoto',p_address='$p_address',t_address='$t_address',start_date='$start_date',end_date='$end_date',total_fee='$total_fee',add_info='$add_info' WHERE comsats_id='$comsats_id'";
+      $sql2="UPDATE students_tbl SET std_name='$std_name',id_card='$id_card',qualification='$qualification',course_id='$course_id',phone_I='$phone_I',phone_II='$phone_II',std_photo='$stdPhoto',p_address='$p_address',t_address='$t_address',start_date='$start_date',end_date='$end_date',total_fee='$total_fee',add_info='$add_info' WHERE comsats_id='$comsats_id'";
       $query2=mysqli_query($config,$sql2);
       if ($query2) {
         $_SESSION['success']="Student Record Updated Successfully";
