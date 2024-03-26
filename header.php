@@ -66,18 +66,6 @@ if (isset($_SESSION['user_data'])) {
           <span>Courses</span>
         </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="teachers.php">
-          <i class="fas fa-users"></i>
-          <span>Teachers</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="std_fee.php">
-          <i class="fas fa-dollar-sign"></i>
-          <span>Fee Record</span>
-        </a>
-      </li>
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
       <!-- Sidebar Toggler (Sidebar) -->
